@@ -26,13 +26,13 @@
 
   <body>
     <div class="container">
-<nav class="navbar navbar-expand-lg bg-body-tertiary m-2">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Techpulse</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary m-2">
+       <div class="container-fluid">
+      <a class="navbar-brand" href="#">Techpulse</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">About Us</a>
@@ -47,19 +47,28 @@
         <button class="btn btn-primary m-2" type="submit">Search</button>
       </form>
 
-         <li class="nav-item list-unstyled ">
-            <%= link_to "Sign In",  user_session_path, class: "btn btn-warning m-1" %>
-        </li>
-
-        <li class="nav-item list-unstyled ">
-            <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-secondary  m-1" %>
-        </li>
-        <li class="nav-item list-unstyled ">
-            <%= link_to "Edit User Profile",  edit_user_registration_path, class: "btn btn-secondary  m-1" %>
-        </li>
+       <%if user_signed_in?%>
         <li class="nav-item list-unstyled ">
             <%= link_to "Sign Out",  destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-secondary  m-1" %>
         </li>
+
+        <li class="nav-item list-unstyled ">
+            <%= link_to "Edit User Profile",  edit_user_registration_path, class: "btn btn-secondary  m-1" %>
+        </li>
+        
+         <li class="nav-item list-unstyled ">
+            <%= link_to "Create a Blog",   new_blog_path, class: "btn btn-secondary  m-1" %>
+        </li>
+        <% else %>
+        <li class="nav-item list-unstyled ">
+            <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-secondary  m-1" %>
+        </li>
+
+         <li class="nav-item list-unstyled ">
+            <%= link_to "Sign In",  user_session_path, class: "btn btn-warning m-1" %>
+        </li>
+       <% end %>
+       
     </div>
   </div>
 </nav>
@@ -75,7 +84,7 @@
   </div>
 </div>
 <!-- Hero -->
- <p class="notice"><%= notice %></p> 
+  <p class="notice"><%= notice %></p> 
   <p class="alert"><%= alert %></p> 
     <%= yield %>
     </div>
