@@ -25,7 +25,51 @@
   </head>
 
   <body>
+    <% if user_signed_in? %> 
+ <div> Welcome <%= current_user.email %> </div> 
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+<% else %>
+  <%= button_to "Sign in", new_user_session_path %> 
+<% end %>
     <div class="container">
+<nav class="navbar navbar-expand-lg bg-body-tertiary m-2">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Techpulse</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">About Us</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Portfolio</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control m-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-primary m-2" type="submit">Search</button>
+      </form>
+      <a href="#" class="btn btn-warning btn-lg active" role="button" aria-pressed="true">Login/Signup</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="p-5 text-center bg-image rounded-3" style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp');
+    height: 400px;
+  ">
+  <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+    <div class="d-flex justify-content-center align-items-center h-100">
+    </div>
+  </div>
+</div>
+<!-- Hero -->
+ <p class="notice"><%= notice %></p> 
+  <p class="alert"><%= alert %></p> 
     <%= yield %>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

@@ -1,11 +1,9 @@
 
-<div class="card" id="<%= dom_id blog %>">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
+<div class=" card my-3" id="<%= dom_id blog %>">
+  <div class="card-header">
     <h5 class="card-title">
         <%= blog.title %>
     </h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
@@ -13,8 +11,10 @@
     </li>
   </ul>
   <div class="card-body">
-    <%= link_to "All Blogs", blogs_path, class: "btn btn-primary"%>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+    <div class="col">
+    <%= link_to "All Blogs", blogs_path, class: "btn btn-primary  m-1"%>
+    <%= link_to "View", blog_path(blog), class: "btn btn-success m-1"%>
+    <%= link_to "Edit", edit_blog_path(blog), class: "btn btn-warning m-1 "%>
+    </div>
   </div>
 </div>
