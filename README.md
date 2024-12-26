@@ -4,7 +4,7 @@
 
 This project is designed to help you build a real Rails application with essential features such as signup, login, and CRUD operations for posts.
 
-![Project Screenshot](app/assets/images/Blog_image.png)
+![Project Overview](app/assets/images/Blog_Image.png)
 
 ## Description
 
